@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Optic Colors – Filiale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Sora:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape--one"></div>
+    <div class="bg-shape bg-shape--two"></div>
+    <div class="bg-shape bg-shape--three"></div>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a class="logo" href="index.html" aria-label="Optic Colors Startseite">
+          <img src="bilder/logo-png.png" alt="Optic Colors Logo" />
+          <div>
+            <p>Optic Colors</p>
+            <span>Sehen mit Stil</span>
+          </div>
+        </a>
+        <nav>
+          <a href="services.html">Services</a>
+          <a href="produkte.html">Kollektion</a>
+          <a href="filiale.html">Filiale</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <a class="cta" href="termin.html">Termin sichern</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Unsere Filiale im Herzen der Stadt.</h1>
+          <p>
+            Modernes Store‑Design, ruhige Beratungszonen und eine Werkstatt mit Blick
+            ins Atelier. Optic Colors steht für klare Linien und warme Atmosphäre.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container grid">
+          <article class="service-card reveal">
+            <div class="media-placeholder" aria-hidden="true"></div>
+            <h3>Showroom</h3>
+            <p>
+              Großzügige Präsentation unserer Kollektion, kuratiert nach Farben und
+              Materialien.
+            </p>
+          </article>
+          <article class="service-card reveal">
+            <div class="media-placeholder" aria-hidden="true"></div>
+            <h3>Beratungs-Lounge</h3>
+            <p>
+              Private Sitzbereiche für Stil- und Sehanalyse – mit Tageslicht
+              simulierten Zonen.
+            </p>
+          </article>
+          <article class="service-card reveal">
+            <div class="media-placeholder" aria-hidden="true"></div>
+            <h3>Werkstatt</h3>
+            <p>
+              Express-Anpassungen und Reparaturen direkt vor Ort, sichtbar im
+              offenen Atelier.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--alt">
+        <div class="container page-content">
+          <h2>Anschrift</h2>
+          <p>Marktplatz 8, 40210 Düsseldorf – direkt am Stadtbrunnen.</p>
+          <h2>Öffnungszeiten</h2>
+          <p>Mo – Fr: 09:00 – 19:00 · Sa: 09:00 – 16:00 · So: geschlossen</p>
+          <h2>Modernste Geräte</h2>
+          <p>
+            Wir arbeiten mit digitalen 3D-Seh-Scans, Live-Zentrierung und präziser
+            Wellenfront-Messung. So entsteht ein Seherlebnis, das sofort spürbar ruhiger
+            und klarer ist.
+          </p>
+          <h2>Besuch planen</h2>
+          <p>
+            Straßenbahnhaltestelle "Marktplatz" in 2 Minuten erreichbar. Parkhaus
+            Stadtmitte mit direktem Fußweg.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Anfahrt mit Google Maps</h2>
+            <p>
+              Nutzen Sie die Karte für eine schnelle Route. Tragen Sie Ihren Startpunkt
+              ein und lassen Sie sich direkt zur Filiale führen.
+            </p>
+          </div>
+          <div id="map" class="map" aria-label="Google Maps Karte"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h3>Optic Colors</h3>
+          <p>Ihr Optiker für Farbe, Komfort und klare Sicht.</p>
+          <p>Telefon: 0211 123 456 78</p>
+          <p>E-Mail: hallo@optic-colors.de</p>
+        </div>
+        <div>
+          <p>Jobs & Karriere</p>
+          <a href="jobs.html">Offene Stellen</a>
+        </div>
+        <div>
+          <p>Rechtliches</p>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const revealItems = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      revealItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.08}s`;
+        observer.observe(item);
+      });
+    </script>
+    <script>
+      function initMap() {
+        const filiale = { lat: 51.2268, lng: 6.7753 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: filiale,
+          zoom: 14,
+          styles: [
+            { elementType: "geometry", stylers: [{ color: "#0f1522" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#dbe7f2" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#0b0f16" }] },
+            { featureType: "poi", elementType: "labels.text.fill", stylers: [{ color: "#8aa0b6" }] },
+            { featureType: "road", elementType: "geometry", stylers: [{ color: "#1a2130" }] },
+            { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#111828" }] },
+            { featureType: "road", elementType: "labels.text.fill", stylers: [{ color: "#9db0c3" }] },
+            { featureType: "water", elementType: "geometry", stylers: [{ color: "#0b2530" }] },
+          ],
+        });
+
+        new google.maps.Marker({
+          position: filiale,
+          map,
+          title: "Optic Colors – Filiale",
+        });
+      }
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=DEIN_API_KEY&callback=initMap"
+      async
+      defer
+    ></script>
+  </body>
+</html>

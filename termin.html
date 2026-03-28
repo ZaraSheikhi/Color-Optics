@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Optic Colors – Termin vereinbaren</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Sora:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape--one"></div>
+    <div class="bg-shape bg-shape--two"></div>
+    <div class="bg-shape bg-shape--three"></div>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a class="logo" href="index.html" aria-label="Optic Colors Startseite">
+          <img src="bilder/logo-png.png" alt="Optic Colors Logo" />
+          <div>
+            <p>Optic Colors</p>
+            <span>Sehen mit Stil</span>
+          </div>
+        </a>
+        <nav>
+          <a href="services.html">Services</a>
+          <a href="produkte.html">Kollektion</a>
+          <a href="filiale.html">Filiale</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <a class="cta" href="termin.html">Termin sichern</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Termin vereinbaren – freundlich, flexibel, stressfrei.</h1>
+          <p>
+            In drei einfachen Schritten zum Termin: Datum wählen, Uhrzeit anklicken,
+            Kontakt eingeben. Wir bestätigen schnell per E‑Mail oder Telefon.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container booking-grid">
+          <div class="booking-panel">
+            <div class="calendar-header">
+              <button class="ghost" id="prevMonth" type="button">Zurück</button>
+              <div>
+                <p class="calendar-label" id="monthLabel">Monat</p>
+                <span class="calendar-sub" id="yearLabel">Jahr</span>
+              </div>
+              <button class="ghost" id="nextMonth" type="button">Weiter</button>
+            </div>
+            <div class="calendar-weekdays">
+              <span>Mo</span>
+              <span>Di</span>
+              <span>Mi</span>
+              <span>Do</span>
+              <span>Fr</span>
+              <span>Sa</span>
+              <span>So</span>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+            <div class="time-slots">
+              <p>Uhrzeit auswählen (die freie Zeit wird bestätigt)</p>
+              <div class="time-grid" id="timeGrid">
+                <button type="button" class="time-slot">09:00</button>
+                <button type="button" class="time-slot">10:30</button>
+                <button type="button" class="time-slot">12:00</button>
+                <button type="button" class="time-slot">13:30</button>
+                <button type="button" class="time-slot">15:00</button>
+                <button type="button" class="time-slot">16:30</button>
+                <button type="button" class="time-slot">18:00</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-form">
+            <h2>Ihre Anfrage</h2>
+            <p class="muted">
+              Wir melden uns persönlich mit einer Bestätigung. Keine langen Formulare,
+              kein Aufwand.
+            </p>
+            <form>
+              <label>
+                Gewünschter Service
+                <select required>
+                  <option value="">Bitte auswählen</option>
+                  <option>Sehtest & Analyse</option>
+                  <option>Brillenberatung</option>
+                  <option>Kontaktlinsen</option>
+                  <option>Werkstatt & Pflege</option>
+                </select>
+              </label>
+              <label>
+                Name
+                <input type="text" placeholder="Vor- und Nachname" required />
+              </label>
+              <label>
+                E-Mail
+                <input type="email" placeholder="name@email.de" required />
+              </label>
+              <label>
+                Telefon
+                <input type="tel" placeholder="0151 1234567" required />
+              </label>
+              <div class="selected-slot">
+                <p>Ausgewählter Termin</p>
+                <strong id="selectedOutput">Bitte Datum & Uhrzeit wählen</strong>
+              </div>
+              <label>
+                Nachricht
+                <textarea rows="4" placeholder="Wünsche, Hinweise, Brillenmarke ..."></textarea>
+              </label>
+              <button class="cta" type="submit">Anfrage senden</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h3>Optic Colors</h3>
+          <p>Ihr Optiker für Farbe, Komfort und klare Sicht.</p>
+          <p>Telefon: 0211 123 456 78</p>
+          <p>E-Mail: hallo@optic-colors.de</p>
+        </div>
+        <div>
+          <p>Jobs & Karriere</p>
+          <a href="jobs.html">Offene Stellen</a>
+        </div>
+        <div>
+          <p>Rechtliches</p>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const monthLabel = document.getElementById("monthLabel");
+      const yearLabel = document.getElementById("yearLabel");
+      const calendarGrid = document.getElementById("calendarGrid");
+      const timeGrid = document.getElementById("timeGrid");
+      const selectedOutput = document.getElementById("selectedOutput");
+      const monthNames = [
+        "Januar",
+        "Februar",
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September",
+        "Oktober",
+        "November",
+        "Dezember",
+      ];
+
+      const today = new Date();
+      let currentMonth = today.getMonth();
+      let currentYear = today.getFullYear();
+      let selectedDate = null;
+      let selectedTime = null;
+
+      function renderCalendar() {
+        calendarGrid.innerHTML = "";
+        monthLabel.textContent = monthNames[currentMonth];
+        yearLabel.textContent = currentYear;
+
+        const firstDay = new Date(currentYear, currentMonth, 1);
+        const startDay = (firstDay.getDay() + 6) % 7;
+        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+        for (let i = 0; i < startDay; i += 1) {
+          const emptyCell = document.createElement("div");
+          emptyCell.className = "calendar-day is-empty";
+          calendarGrid.appendChild(emptyCell);
+        }
+
+        for (let day = 1; day <= daysInMonth; day += 1) {
+          const date = new Date(currentYear, currentMonth, day);
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "calendar-day";
+          button.textContent = day;
+
+          if (date < new Date(today.getFullYear(), today.getMonth(), today.getDate())) {
+            button.disabled = true;
+            button.classList.add("is-disabled");
+          }
+
+          if (selectedDate && date.toDateString() === selectedDate.toDateString()) {
+            button.classList.add("is-selected");
+          }
+
+          button.addEventListener("click", () => {
+            selectedDate = date;
+            updateSelected();
+            renderCalendar();
+          });
+
+          calendarGrid.appendChild(button);
+        }
+      }
+
+      function updateSelected() {
+        if (!selectedDate || !selectedTime) {
+          selectedOutput.textContent = "Bitte Datum & Uhrzeit wählen";
+          return;
+        }
+
+        const day = selectedDate.toLocaleDateString("de-DE", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        });
+        selectedOutput.textContent = `${day} um ${selectedTime} Uhr`;
+      }
+
+      document.getElementById("prevMonth").addEventListener("click", () => {
+        currentMonth -= 1;
+        if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear -= 1;
+        }
+        renderCalendar();
+      });
+
+      document.getElementById("nextMonth").addEventListener("click", () => {
+        currentMonth += 1;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear += 1;
+        }
+        renderCalendar();
+      });
+
+      timeGrid.querySelectorAll(".time-slot").forEach((slot) => {
+        slot.addEventListener("click", () => {
+          timeGrid.querySelectorAll(".time-slot").forEach((btn) => btn.classList.remove("is-selected"));
+          slot.classList.add("is-selected");
+          selectedTime = slot.textContent;
+          updateSelected();
+        });
+      });
+
+      renderCalendar();
+    </script>
+  </body>
+</html>

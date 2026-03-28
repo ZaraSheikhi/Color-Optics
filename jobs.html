@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Optic Colors – Jobs & Karriere</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Sora:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape--one"></div>
+    <div class="bg-shape bg-shape--two"></div>
+    <div class="bg-shape bg-shape--three"></div>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a class="logo" href="index.html" aria-label="Optic Colors Startseite">
+          <img src="bilder/logo-png.png" alt="Optic Colors Logo" />
+          <div>
+            <p>Optic Colors</p>
+            <span>Sehen mit Stil</span>
+          </div>
+        </a>
+        <nav>
+          <a href="services.html">Services</a>
+          <a href="produkte.html">Kollektion</a>
+          <a href="filiale.html">Filiale</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <a class="cta" href="termin.html">Termin sichern</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Jobs & Karriere bei Optic Colors</h1>
+          <p>
+            Wir wachsen und suchen Menschen mit Blick fur Details, Stil und Service.
+            Entdecke offene Stellen in Beratung, Werkstatt und Store-Management.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container grid">
+          <article class="service-card reveal">
+            <div class="media-placeholder" aria-hidden="true"></div>
+            <h3>Augenoptiker:in (Vollzeit)</h3>
+            <p>
+              Beratung, Messung, Anpassung. Du bringst Fachwissen und Herz fur Kundinnen
+              und Kunden mit.
+            </p>
+          </article>
+          <article class="service-card reveal">
+            <div class="media-placeholder" aria-hidden="true"></div>
+            <h3>Werkstatt & Service (Teilzeit)</h3>
+            <p>
+              Reparaturen, Justierungen und Qualitatskontrollen. Erfahrung in Feinmechanik
+              willkommen.
+            </p>
+          </article>
+          <article class="service-card reveal">
+            <div class="media-placeholder" aria-hidden="true"></div>
+            <h3>Store Manager:in</h3>
+            <p>
+              Verantwortung fur Team, Sortiment und Kundenerlebnis. Hands-on Mentalitat
+              erwunscht.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--alt">
+        <div class="container page-content">
+          <h2>Deine Vorteile</h2>
+          <p>Unbefristeter Vertrag, Weiterbildung, attraktive Mitarbeiterrabatte.</p>
+          <p>Flexible Arbeitszeiten und ein Team, das sich gegenseitig unterstutzt.</p>
+          <h2>Jetzt bewerben</h2>
+          <p>Schick uns deinen Lebenslauf an jobs@optic-colors.de.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h3>Optic Colors</h3>
+          <p>Ihr Optiker für Farbe, Komfort und klare Sicht.</p>
+          <p>Telefon: 0211 123 456 78</p>
+          <p>E-Mail: hallo@optic-colors.de</p>
+        </div>
+        <div>
+          <p>Jobs & Karriere</p>
+          <a href="jobs.html">Offene Stellen</a>
+        </div>
+        <div>
+          <p>Rechtliches</p>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const revealItems = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      revealItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.08}s`;
+        observer.observe(item);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Optic Colors – Kontakt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Sora:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape--one"></div>
+    <div class="bg-shape bg-shape--two"></div>
+    <div class="bg-shape bg-shape--three"></div>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a class="logo" href="index.html" aria-label="Optic Colors Startseite">
+          <img src="bilder/logo-png.png" alt="Optic Colors Logo" />
+          <div>
+            <p>Optic Colors</p>
+            <span>Sehen mit Stil</span>
+          </div>
+        </a>
+        <nav>
+          <a href="services.html">Services</a>
+          <a href="produkte.html">Kollektion</a>
+          <a href="filiale.html">Filiale</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <a class="cta" href="termin.html">Termin sichern</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Kontakt & Terminplanung</h1>
+          <p>
+            Sie möchten spontan vorbeikommen oder einen Termin reservieren? Wir sind
+            telefonisch, per E-Mail oder WhatsApp erreichbar.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container contact-grid">
+          <div class="contact-card reveal">
+            <h3>Öffnungszeiten</h3>
+            <ul>
+              <li>Mo – Fr: 09:00 – 19:00</li>
+              <li>Sa: 09:00 – 16:00</li>
+              <li>So: geschlossen</li>
+            </ul>
+          </div>
+          <div class="contact-card reveal">
+            <h3>Direktkontakt</h3>
+            <ul>
+              <li>Telefon: 0211 123 456 78</li>
+              <li>E-Mail: hallo@optic-colors.de</li>
+              <li>WhatsApp: +49 151 111 222 33</li>
+            </ul>
+          </div>
+          <div class="contact-card reveal">
+            <h3>Adresse</h3>
+            <ul>
+              <li>Marktplatz 8</li>
+              <li>40210 Düsseldorf</li>
+              <li>Direkt am Stadtbrunnen</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt">
+        <div class="container booking-form">
+          <h2>Direkte Kontaktanfrage</h2>
+          <p class="muted">
+            Schreiben Sie uns kurz Ihr Anliegen. Wir melden uns schnellstmöglich zurück.
+          </p>
+          <form>
+            <label>
+              Name
+              <input type="text" placeholder="Vor- und Nachname" required />
+            </label>
+            <label>
+              E-Mail
+              <input type="email" placeholder="name@email.de" required />
+            </label>
+            <label>
+              Telefon (optional)
+              <input type="tel" placeholder="0151 1234567" />
+            </label>
+            <label>
+              Nachricht
+              <textarea rows="4" placeholder="Worum geht es?" required></textarea>
+            </label>
+            <button class="cta" type="submit">Anfrage senden</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="section section--alt">
+        <div class="container page-content">
+          <h2>Anfahrt</h2>
+          <p>
+            Öffentliche Parkplätze befinden sich im Parkhaus Stadtmitte. Die
+            Straßenbahnhaltestelle "Marktplatz" ist zwei Minuten entfernt.
+          </p>
+          <p>
+            Wenn Sie mit dem Fahrrad kommen, bieten wir kostenfreie Stellplätze im
+            Innenhof.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h3>Optic Colors</h3>
+          <p>Ihr Optiker für Farbe, Komfort und klare Sicht.</p>
+          <p>Telefon: 0211 123 456 78</p>
+          <p>E-Mail: hallo@optic-colors.de</p>
+        </div>
+        <div>
+          <p>Jobs & Karriere</p>
+          <a href="jobs.html">Offene Stellen</a>
+        </div>
+        <div>
+          <p>Rechtliches</p>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const revealItems = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      revealItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.08}s`;
+        observer.observe(item);
+      });
+    </script>
+  </body>
+</html>
